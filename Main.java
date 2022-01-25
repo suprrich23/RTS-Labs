@@ -7,7 +7,6 @@ public class Main {
   
     public static Map<String, Integer> aboveBelow(List<Integer> unsort, Integer comp){
       int up = 0, down = 0;
-      long start1 = System.nanoTime();
       for (int i = 0; i < unsort.size(); i++){
         if (unsort.get(i) < comp){
           down++;
@@ -16,22 +15,10 @@ public class Main {
           up++;
         }
       }
-      long end1 = System.nanoTime();
-      System.out.println("Elapsed Time in nano seconds: "+ (end1-start1));
 
       Map <String, Integer> sorted = new HashMap<String, Integer>();
       sorted.put("below", down);
       sorted.put("above", up);
-
-      System.out.println(Arrays.asList(sorted));
-
-      long start12 = System.nanoTime();
-      Integer[] sort = new Integer[unsort.size()];
-      sort = unsort.toArray(sort);
-      Arrays.sort(sort);
-      long end12 = System.nanoTime();
-      System.out.println("Elapsed Time in nano seconds: "+ (end12-start12));
-
       return sorted; 
     }
 
@@ -48,7 +35,7 @@ public class Main {
       String subPhrase = word.substring(startChar,lastChar);
       String mainPhrase = word.substring(0, startChar);
       String result = subPhrase.concat(mainPhrase);
-      System.out.println(result);
+      
       return result;
     }
 
